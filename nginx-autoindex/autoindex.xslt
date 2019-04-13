@@ -6,7 +6,7 @@
   <xsl:template match="/">
  <html lang="en">
  <head>
-   <title>ospi's dump</title>
+   <title>IndexOf <xsl:value-of select="$cpath"/></title>
    <meta charset="utf-8"/>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
    <xsl:text disable-output-escaping="yes">
