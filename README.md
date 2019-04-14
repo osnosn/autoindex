@@ -6,7 +6,7 @@
    <img src="https://github.com/osnosn/autoindex/raw/master/autoindex-php.png" width="300" />.   
 
 * ## [nginx-autoindex](https://github.com/osnosn/autoindex/tree/master/nginx-autoindex)
-
+   * use [ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html) module.
 > ```
 > location ^~ /bt/ {
 >    autoindex on;
@@ -19,6 +19,9 @@
 > <img src="https://github.com/osnosn/autoindex/raw/master/nginx-org.png" width="300" />. 
    
 
+   * use [ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html) module.   
+   * use [ngx_http_xslt_module](http://nginx.org/en/docs/http/ngx_http_xslt_module.html) module.   
+   * ngx_http_xslt_module support by **libexslt**. So it can use EXSLT functions.   
 > ```
 > location ^~ /bt/ {
 >    autoindex on;

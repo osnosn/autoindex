@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
+
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:date="http://exslt.org/dates-and-times"
-   extension-element-prefixes="date"
-   >
+   extension-element-prefixes="date" >
+  <xsl:output method="html" encoding="UTF-8"/>
 
   <xsl:param name="cpath"/>
   <xsl:variable name="TIMEDIFF" select="'PT8H'"/><!-- 'PT0H' '-PT6H' -->
   <xsl:template match="/">
- <html lang="en">
+  <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+ <html>
  <head>
    <title>IndexOf <xsl:value-of select="$cpath"/></title>
    <meta charset="utf-8"/>
