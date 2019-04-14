@@ -1,12 +1,13 @@
-# [autoindex](https://github.com/osnosn/autoindex/)
+# [Autoindex](https://github.com/osnosn/autoindex/)
+Contains two separate projects
 
-* ## [autoindex-php/](https://github.com/osnosn/autoindex/tree/master/autoindex-php)
+* ## 1. [Autoindex-php](https://github.com/osnosn/autoindex/tree/master/autoindex-php)
    autoindex write in PHP.   
    copy `.DirTrees/` and `index.php` into FOLDER.   
    <img src="https://github.com/osnosn/autoindex/raw/master/autoindex-php.png" width="300" />.   
 
-* ## [nginx-autoindex](https://github.com/osnosn/autoindex/tree/master/nginx-autoindex)
-   * use [ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html) module.
+* ## 2. [Nginx-autoindex](https://github.com/osnosn/autoindex/tree/master/nginx-autoindex)
+> use **[ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html)** module.
 > ```
 > location ^~ /bt/ {
 >    autoindex on;
@@ -19,9 +20,9 @@
 > <img src="https://github.com/osnosn/autoindex/raw/master/nginx-org.png" width="300" />. 
    
 
-   * use [ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html) module.   
-   * use [ngx_http_xslt_module](http://nginx.org/en/docs/http/ngx_http_xslt_module.html) module.   
-   * ngx_http_xslt_module support by **libexslt**. So it can use EXSLT functions.   
+> use **[ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html)** module.   
+> use **[ngx_http_xslt_module](http://nginx.org/en/docs/http/ngx_http_xslt_module.html)** module.   
+> ngx_http_xslt_module support by **libexslt**. So it can use **[EXSLT](http://exslt.org/)** functions.   
 > ```
 > location ^~ /bt/ {
 >    autoindex on;
