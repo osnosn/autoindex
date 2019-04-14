@@ -7,6 +7,7 @@ Contains two separate projects
    <img src="https://github.com/osnosn/autoindex/raw/master/autoindex-php.png" width="300" />.   
 
 * ## 2. [Nginx-autoindex](https://github.com/osnosn/autoindex/tree/master/nginx-autoindex)
+> ### Nginx custom autoindex with XSLT  
 > use **[ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html)** module.
 > ```
 > location ^~ /bt/ {
