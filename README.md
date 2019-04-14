@@ -2,12 +2,12 @@
 Contains two separate projects
 
 * ## 1. [Autoindex-php](https://github.com/osnosn/autoindex/tree/master/autoindex-php)
-   autoindex write in PHP.   
+   ###  Autoindex write in PHP.   
    copy `.DirTrees/` and `index.php` into FOLDER.   
    <img src="https://github.com/osnosn/autoindex/raw/master/autoindex-php.png" width="300" />.   
 
 * ## 2. [Nginx-autoindex](https://github.com/osnosn/autoindex/tree/master/nginx-autoindex)
-> ### Nginx custom autoindex with XSLT  
+   ### Nginx custom autoindex with XSLT.  
 > use **[ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html)** module.
 > ```
 > location ^~ /bt/ {
