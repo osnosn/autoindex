@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:date="http://exslt.org/dates-and-times"
+   extension-element-prefixes="date"
+   >
 
   <xsl:param name="cpath"/>
+  <xsl:variable name="TIMEDIFF" select="'PT8H'"/><!-- 'PT0H' '-PT6H' -->
   <xsl:template match="/">
  <html lang="en">
  <head>
@@ -17,6 +21,7 @@
     autoindex_format  xml;
     xslt_stylesheet  /..path_to.../html/autoindex.xslt  cpath="$uri";
    ========= config in nginx: ===============
+    modify variable "TIMEDIFF".
 --&gt;
 
    </xsl:text>
@@ -32,6 +37,7 @@
 	table-layout:fixed;
 	margin-top: 15px;
 	margin-left: 5px; 
+	margin-right: 5px; 
 
 	box-shadow: 0 0 0.5em #999;
 	border: none !important;
@@ -78,7 +84,7 @@
   a:hover{text-decoration:underline;}
   .name{min-width:400px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-size:15px;}
   .size{min-width:65px;white-space:nowrap;font-size:13px;text-align:right;}
-  .mtime{width:125px;white-space:nowrap;font-size:11px;text-align:center;}
+  .mtime{width:115px;white-space:nowrap;font-size:11px;text-align:center;}
    </style>
  </head>
  <body>
@@ -97,11 +103,12 @@
  </xsl:template>
 
   <xsl:template match="list">
+    <table style="width:100%;min-width:670px;margin:0;box-shadow:none" cellpadding="0"><tr style="background:none"><td style="padding:0;border:0"><center>
     <table>
    <tr>
      <th>Name</th>
      <th width="80px">Size</th>
-     <th width="130px">Modified</th>
+     <th width="115px">Modified</th>
    </tr>
    <tr>
      <td><a href="../">../</a></td>
@@ -113,6 +120,7 @@
     </xsl:for-each>
     <xsl:apply-templates/>
     </table>
+    </center></td></tr></table>
   </xsl:template>
 
   <xsl:template match="file">
@@ -137,7 +145,9 @@
    <tr>
      <td class="f11"><div class="name"><a href="{$name}" title="{$name}"><xsl:value-of select="."/></a></div></td>
      <td><div class="size" title="{@size} bytes"><xsl:value-of select="$size"/></div></td>
-     <td><div class="mtime"><xsl:value-of select="translate(@mtime,'T',' ')"/></div></td>
+     <td><div class="mtime">
+           <xsl:value-of select="translate(date:add(@mtime,$TIMEDIFF),'TZ','  ')" />
+     </div></td>
    </tr>
   </xsl:template>
 
@@ -148,7 +158,9 @@
    <tr>
      <td class="f11"><div class="name"><a href="{$name}" title="{$name}/"><xsl:value-of select="."/>/</a></div></td>
      <td><div class="size"> -- </div></td>
-     <td><div class="mtime"><xsl:value-of select="translate(@mtime,'T',' ')"/></div></td>
+     <td><div class="mtime">
+           <xsl:value-of select="translate(date:add(@mtime,$TIMEDIFF),'TZ','  ')" />
+     </div> </td>
    </tr>
   </xsl:template>
 

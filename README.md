@@ -27,6 +27,10 @@
 >    #charset utf-8;
 >    include /etc/nginx/default.d/php71w-fpm.conf;
 > }
+> 
+> # modify variable "TIMEDIFF" in "autoindex.xslt", 
+> # time nochange 'PT0H', +8 hour='PT8H', -6 hour='-PT6H'.
 > ```
 > <img src="https://github.com/osnosn/autoindex/raw/master/nginx-xslt.png" width="300" />.   
-> File modification time is UTC time. Because only UTC time is provided in the XML file. 
+> File modification time is UTC time. Because only UTC time is provided in the XML file.   
+> You can modify variable "TIMEDIFF" to change display of modify time.   
