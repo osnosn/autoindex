@@ -112,6 +112,7 @@ function NL(th,sf){
        fwrite($fp,file_get_contents($readmefile));
        //fclose($readmefp);
     }
+    $tnow=new DateTime();
     fwrite($fp,'
    <hr>
    </td></tr>
@@ -128,6 +129,8 @@ function NL(th,sf){
         <td bgcolor="#5389BC" width="30"></td>
         <td bgcolor="#5389BC"><span onclick="Expand(false)" style="padding:5px;color:#FFFFFF;cursor:pointer;">Minimize</span></td>
         <td bgcolor="#5389BC" width="20"></td>
+        <td width="20"></td>
+        <td width="190">'.$tnow->format('Y-m-d H:i:s O D').'</td>
       </tr></table>
   </div>
       ');
@@ -371,8 +374,9 @@ function hidefile_sort($files,$f){
       }
       $tmpfile=array_values($tmpfile); // 重建下标 
       //sort($tmpfile,SORT_STRING);
-      $callback=create_function('$x,$y','$a=(is_dir("'.$f.'"."/".$y)-is_dir("'.$f.'"."/".$x));
-                                        if($a==0) return strcmp($x,$y); else return $a;');
+      //$callback=create_function('$x,$y','$a=(is_dir("'.$f.'"."/".$y)-is_dir("'.$f.'"."/".$x)); if($a==0) return strcmp($x,$y); else return $a;');
+      //eval('$callback=function($x,$y){ $a=(is_dir("'.$f.'/".$y)-is_dir("'.$f.'/".$x)); if($a==0) return strcmp($x,$y); else return $a; };');
+      $callback=function($x,$y)use($f){ $a=(is_dir($f."/".$y)-is_dir($f."/".$x)); if($a==0) return strcmp($x,$y); else return $a; };
       usort($tmpfile,$callback);
       return $tmpfile;
 }
