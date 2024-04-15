@@ -5,7 +5,7 @@ define('TARGET_FILE',START_DIR.'/'.'index11.html'); //target_file
 define('README_FILE','readme');
 define('START_URL','.');
 define('BASE_HREF','');
-//define('BASE_HREF','<base href="http://fxb.csair.com/soft/" />');
+//define('BASE_HREF','<base href="http://fxb.mysite.com/soft/" />');
 define('ICON_PATH','.DirTrees/');
 //$WRITE_FILE_OR_OUTPUT='file';
 
